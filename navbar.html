@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitur Navbar</title>
+
+  <!-- CSS Terintegrasi -->
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f9;
+    }
+
+    /* Base Navbar Styles */
+    .navbar {
+      background-color: #1a1a2e;
+      height: 80px;
+      display: table;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 80px;
+    }
+
+    .nav-logo {
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 700;
+      text-decoration: none;
+      line-height: 80px;
+      float: left;
+    }
+
+    .nav-menu {
+      list-style: none;
+      float: right;
+      line-height: 80px;
+    }
+
+    .nav-menu li {
+      display: inline-block;
+    }
+
+    .nav-links {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 16px;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links:hover {
+      color: #00adb5;
+    }
+
+    /* Mobile Menu Toggle Button */
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      float: right;
+      margin-top: 24px;
+    }
+
+    .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      background-color: #ffffff;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Responsif (HP & Tablet) */
+    @media screen and (max-width: 768px) {
+      .nav-menu {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        background-color: #1a1a2e;
+        text-align: center;
+        padding: 20px 0;
+        line-height: normal;
+        float: none;
+      }
+
+      .nav-menu.active {
+        display: block;
+      }
+
+      .nav-menu li {
+        display: block;
+        margin: 15px 0;
+      }
+
+      .nav-links {
+        display: block;
+        padding: 12px 0;
+        width: 100%;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar Component -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">LogoKita</a>
+      
+      <!-- Tombol Hamburger untuk tampilan Mobile -->
+      <button class="nav-toggle" id="mobile-menu" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      
+      <!-- Menu Navigasi -->
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-links">Home</a></li>
+        <li><a href="#tentang" class="nav-links">Tentang</a></li>
+        <li><a href="#layanan" class="nav-links">Layanan</a></li>
+        <li><a href="#kontak" class="nav-links">Kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Konten Utama (Contoh) -->
+  <main style="padding: 40px 20px; max-width: 1200px; margin: 0 auto; color: #333;">
+    <h1>Selamat Datang di Website Kami</h1>
+    <p style="margin-top: 10px; line-height: 1.6;">
+      Ini adalah halaman web tunggal yang sudah dilengkapi fitur Navbar responsif (CSS & JS ada di dalam satu file HTML).
+    </p>
+  </main>
+
+  <!-- JavaScript Terintegrasi -->
+  <script>
+    // Mengambil elemen HTML
+    const mobileMenu = document.querySelector('#mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    // Menambahkan event listener saat tombol mobile diklik
+    mobileMenu.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+    });
+
+    // Menutup menu mobile saat salah satu link diklik
+    const navLinks = document.querySelectorAll('.nav-links');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
